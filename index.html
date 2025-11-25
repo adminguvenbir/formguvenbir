@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Güven Bir OSGB - Form Giriş Portalı</title>
+    
+    <!-- Tailwind CSS (Hızlı stil kütüphanesi) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons (Modern ikonlar) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#0a1a2f',    /* Lacivert arkaplan */
+                            primary: '#ff7a00', /* Turuncu buton */
+                            hover: '#ff8f1f',   /* Açık turuncu hover */
+                            text: '#ffffff'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a1a2f; /* Yedek arka plan */
+        }
+        /* Buton Hover Animasyonu */
+        .btn-card {
+            transition: all 0.3s ease;
+        }
+        .btn-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(255, 122, 0, 0.4);
+        }
+        /* Arka plan blob animasyonu */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-bg text-brand-text min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+
+    <!-- Arka plan dekoratif elementler (Hafif parıltılar) -->
+    <div class="absolute top-0 left-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
+    <div class="absolute bottom-0 right-0 w-64 h-64 bg-brand-primary rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+
+    <div class="w-full max-w-md z-10">
+        
+        <!-- LOGO ALANI -->
+        <div class="flex flex-col items-center mb-10">
+            <!-- 
+                Logo Kutusu: 
+                Arka plan rengi ile karışmaması için beyaz, 
+                yuvarlak köşeli ve gölgeli bir kutu içine aldık.
+            -->
+            <div class="bg-white p-6 rounded-2xl mb-6 backdrop-blur-sm border border-white/10 shadow-2xl w-full flex justify-center">
+                <!-- Logo Dosyası: index.html ile aynı klasörde olmalı -->
+                <img src="LOGO HQ.png" alt="Güven Bir OSGB Logo" class="h-20 object-contain">
+            </div>
+            
+            <h1 class="text-3xl font-bold tracking-tight text-center">
+                Güven Bir <span class="text-brand-primary">OSGB</span>
+            </h1>
+            <p class="text-gray-400 mt-2 text-sm uppercase tracking-wider font-semibold">Form Giriş Portalı</p>
+        </div>
+
+        <!-- BUTONLAR LİSTESİ -->
+        <div class="space-y-4">
+            
+            <!-- Buton 1: Sağlık Tetkikleri -->
+            <!-- href="..." kısmına ilgili form linkini yapıştırın -->
+            <a href="#saglik-linki-buraya" target="_blank" class="group btn-card bg-brand-primary hover:bg-brand-hover text-white p-5 rounded-xl flex items-center justify-between no-underline border border-transparent hover:border-white/20">
+                <div class="flex items-center gap-4">
+                    <div class="bg-white/20 p-2 rounded-lg group-hover:bg-white/30 transition-colors">
+                        <!-- İkon: Activity -->
+                        <i data-lucide="activity" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex flex-col text-left">
+                        <span class="font-bold text-lg">Sağlık Tetkikleri</span>
+                        <span class="text-xs text-white/80 font-normal">İşe giriş ve periyodik muayene</span>
+                    </div>
+                </div>
+                <i data-lucide="chevron-right" class="w-5 h-5 opacity-70 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <!-- Buton 2: Periyodik Kontrol -->
+            <a href="#kontrol-linki-buraya" target="_blank" class="group btn-card bg-brand-primary hover:bg-brand-hover text-white p-5 rounded-xl flex items-center justify-between no-underline border border-transparent hover:border-white/20">
+                <div class="flex items-center gap-4">
+                    <div class="bg-white/20 p-2 rounded-lg group-hover:bg-white/30 transition-colors">
+                        <!-- İkon: Clipboard Check -->
+                        <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex flex-col text-left">
+                        <span class="font-bold text-lg">Periyodik Kontrol</span>
+                        <span class="text-xs text-white/80 font-normal">Ortam ölçümü ve ekipman</span>
+                    </div>
+                </div>
+                <i data-lucide="chevron-right" class="w-5 h-5 opacity-70 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <!-- Buton 3: Eğitim -->
+            <a href="#egitim-linki-buraya" target="_blank" class="group btn-card bg-brand-primary hover:bg-brand-hover text-white p-5 rounded-xl flex items-center justify-between no-underline border border-transparent hover:border-white/20">
+                <div class="flex items-center gap-4">
+                    <div class="bg-white/20 p-2 rounded-lg group-hover:bg-white/30 transition-colors">
+                        <!-- İkon: Graduation Cap -->
+                        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex flex-col text-left">
+                        <span class="font-bold text-lg">Eğitim</span>
+                        <span class="text-xs text-white/80 font-normal">İSG eğitim kayıtları</span>
+                    </div>
+                </div>
+                <i data-lucide="chevron-right" class="w-5 h-5 opacity-70 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+        </div>
+
+        <!-- Footer / Bilgi -->
+        <div class="mt-12 text-center border-t border-white/10 pt-6">
+            <p class="text-gray-500 text-xs">
+                &copy; 2024 Güven Bir Ortak Sağlık Güvenlik Birimi<br>
+                Tüm hakları saklıdır.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Lucide ikonlarını oluştur (Sayfa yüklendiğinde ikonları çiz)
+        lucide.createIcons();
+    </script>
+</body>
+</html>
