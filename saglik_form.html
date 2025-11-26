@@ -226,14 +226,22 @@
             const data = new FormData(form);
             
             fetch(SCRIPT_URL, { method: 'POST', body: data })
+            .then(response => response.json()) // JSON yanıtını al
             .then(response => {
-                loadingMsg.classList.add('hidden');
-                successMsg.classList.remove('hidden');
-                form.reset();
-                setTimeout(() => { window.location.href = "index.html"; }, 3000);
+                if (response.result === 'success') {
+                    // Başarılıysa
+                    loadingMsg.classList.add('hidden');
+                    successMsg.classList.remove('hidden');
+                    form.reset();
+                    setTimeout(() => { window.location.href = "index.html"; }, 3000);
+                } else {
+                    // Script hata döndürdüyse (örn: Sayfa bulunamadı)
+                    throw new Error(response.error); 
+                }
             })
             .catch(error => {
-                alert("Bir hata oluştu. Lütfen bağlantınızı kontrol edip tekrar deneyin.");
+                // Ağ hatası veya Script hatası
+                alert("Kayıt Başarısız! Hata Detayı:\n" + error.message + "\n\nLütfen Excel sayfa adının 'Sayfa1' olduğunu kontrol edin.");
                 submitBtn.classList.remove('hidden');
                 loadingMsg.classList.add('hidden');
             });
