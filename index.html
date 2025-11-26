@@ -72,14 +72,8 @@
         
         <!-- LOGO ALANI -->
         <div class="flex flex-col items-center mb-10">
-            <!-- 
-                Logo Kutusu: 
-                Arka plan rengi ile karışmaması için beyaz, 
-                yuvarlak köşeli ve gölgeli bir kutu içine aldık.
-            -->
             <div class="bg-white p-6 rounded-2xl mb-6 backdrop-blur-sm border border-white/10 shadow-2xl w-full flex justify-center">
-                <!-- Logo Dosyası: index.html ile aynı klasörde olmalı -->
-                <!-- LOGO BOYUTU GÜNCELLENDİ: h-32 yapıldı -->
+                <!-- Logo Dosyası -->
                 <img src="LOGO HQ.png" alt="Güven Bir OSGB Logo" class="h-32 object-contain">
             </div>
             
@@ -92,8 +86,7 @@
         <!-- BUTONLAR LİSTESİ -->
         <div class="space-y-4">
             
-            <!-- Buton 1: Sağlık Tetkikleri -->
-            <!-- GÜNCELLENDİ: Link saglik_form.html oldu, target=_blank kaldırıldı (aynı sekmede açsın diye) -->
+            <!-- 1. BUTON: Sağlık Tetkikleri -->
             <a href="saglik_form.html" class="group btn-card bg-brand-primary hover:bg-brand-hover text-white p-5 rounded-xl flex items-center justify-between no-underline border border-transparent hover:border-white/20">
                 <div class="flex items-center gap-4">
                     <div class="bg-white/20 p-2 rounded-lg group-hover:bg-white/30 transition-colors">
@@ -107,26 +100,38 @@
                 <i data-lucide="chevron-right" class="w-5 h-5 opacity-70 group-hover:translate-x-1 transition-transform"></i>
             </a>
 
-            <!-- Buton 2: Periyodik Kontrol -->
-            <a href="#kontrol-linki-buraya" target="_blank" class="group btn-card bg-brand-primary hover:bg-brand-hover text-white p-5 rounded-xl flex items-center justify-between no-underline border border-transparent hover:border-white/20">
+            <!-- 2. BUTON: Ortam Ölçümü -->
+            <a href="ortam_olcum_form.html" class="group btn-card bg-brand-primary hover:bg-brand-hover text-white p-5 rounded-xl flex items-center justify-between no-underline border border-transparent hover:border-white/20">
                 <div class="flex items-center gap-4">
                     <div class="bg-white/20 p-2 rounded-lg group-hover:bg-white/30 transition-colors">
-                        <!-- İkon: Clipboard Check -->
-                        <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+                        <i data-lucide="gauge" class="w-6 h-6"></i>
                     </div>
                     <div class="flex flex-col text-left">
-                        <span class="font-bold text-lg">Periyodik Kontrol</span>
-                        <span class="text-xs text-white/80 font-normal">Ortam ölçümü ve ekipman</span>
+                        <span class="font-bold text-lg">Ortam Ölçümü</span>
+                        <span class="text-xs text-white/80 font-normal">Gürültü, toz ve gaz ölçümleri</span>
                     </div>
                 </div>
                 <i data-lucide="chevron-right" class="w-5 h-5 opacity-70 group-hover:translate-x-1 transition-transform"></i>
             </a>
 
-            <!-- Buton 3: Eğitim -->
-            <a href="#egitim-linki-buraya" target="_blank" class="group btn-card bg-brand-primary hover:bg-brand-hover text-white p-5 rounded-xl flex items-center justify-between no-underline border border-transparent hover:border-white/20">
+            <!-- 3. BUTON: Makina Ekipman (Periyodik Kontrol) -->
+            <a href="periyodik_kontrol_form.html" class="group btn-card bg-brand-primary hover:bg-brand-hover text-white p-5 rounded-xl flex items-center justify-between no-underline border border-transparent hover:border-white/20">
                 <div class="flex items-center gap-4">
                     <div class="bg-white/20 p-2 rounded-lg group-hover:bg-white/30 transition-colors">
-                        <!-- İkon: Graduation Cap -->
+                        <i data-lucide="wrench" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex flex-col text-left">
+                        <span class="font-bold text-lg">Makina Ekipman</span>
+                        <span class="text-xs text-white/80 font-normal">Periyodik kontrol ve testler</span>
+                    </div>
+                </div>
+                <i data-lucide="chevron-right" class="w-5 h-5 opacity-70 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <!-- 4. BUTON: Eğitim -->
+            <a href="egitim_form.html" class="group btn-card bg-brand-primary hover:bg-brand-hover text-white p-5 rounded-xl flex items-center justify-between no-underline border border-transparent hover:border-white/20">
+                <div class="flex items-center gap-4">
+                    <div class="bg-white/20 p-2 rounded-lg group-hover:bg-white/30 transition-colors">
                         <i data-lucide="graduation-cap" class="w-6 h-6"></i>
                     </div>
                     <div class="flex flex-col text-left">
@@ -137,9 +142,22 @@
                 <i data-lucide="chevron-right" class="w-5 h-5 opacity-70 group-hover:translate-x-1 transition-transform"></i>
             </a>
 
+             <!-- 5. BUTON: Boş Şablonlar -->
+             <a href="sablonlar.html" class="group btn-card bg-brand-primary hover:bg-brand-hover text-white p-5 rounded-xl flex items-center justify-between no-underline border border-transparent hover:border-white/20">
+                <div class="flex items-center gap-4">
+                    <div class="bg-white/20 p-2 rounded-lg group-hover:bg-white/30 transition-colors">
+                        <i data-lucide="file-text" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex flex-col text-left">
+                        <span class="font-bold text-lg">Boş Şablonlar</span>
+                        <span class="text-xs text-white/80 font-normal">Uzman evrak ve form şablonları</span>
+                    </div>
+                </div>
+                <i data-lucide="chevron-right" class="w-5 h-5 opacity-70 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
         </div>
 
-        <!-- Footer / Bilgi -->
         <div class="mt-12 text-center border-t border-white/10 pt-6">
             <p class="text-gray-500 text-xs">
                 &copy; 2024 Güven Bir Ortak Sağlık Güvenlik Birimi<br>
@@ -149,7 +167,6 @@
     </div>
 
     <script>
-        // Lucide ikonlarını oluştur (Sayfa yüklendiğinde ikonları çiz)
         lucide.createIcons();
     </script>
 </body>
