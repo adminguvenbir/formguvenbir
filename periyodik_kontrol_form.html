@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Periyodik Kontrol Talep Formu - Güven Bir OSGB</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- İkonlar -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Fontlar -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            bg: '#0a1a2f',
+                            primary: '#ff7a00',
+                            hover: '#ff8f1f',
+                            text: '#ffffff',
+                            card: 'rgba(255, 255, 255, 0.05)',
+                            group: 'rgba(255, 255, 255, 0.03)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-brand-bg text-brand-text min-h-screen flex flex-col items-center py-10 px-4 relative">
+
+    <div class="fixed top-0 left-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob pointer-events-none"></div>
+    <div class="fixed bottom-0 right-0 w-64 h-64 bg-brand-primary rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000 pointer-events-none"></div>
+
+    <div class="w-full max-w-5xl z-10">
+        
+        <!-- ÜST KISIM -->
+        <div class="flex flex-col items-center mb-6">
+             <div class="bg-white p-3 rounded-xl mb-4 backdrop-blur-sm border border-white/10 shadow-xl">
+                <img src="LOGO HQ.png" alt="Güven Bir Logo" class="h-12 object-contain">
+            </div>
+            <h2 class="text-2xl font-bold text-center">Makina Ekipman Periyodik Kontrol</h2>
+            <p class="text-gray-400 text-sm mt-1 text-center">Lütfen kontrol edilecek ekipman adetlerini giriniz.</p>
+        </div>
+
+        <form id="talepFormu" class="bg-brand-card backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-2xl space-y-8">
+            
+            <!-- GENEL BİLGİLER -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="col-span-1 md:col-span-1">
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Firma Adı</label>
+                    <input type="text" name="firma_adi" required class="w-full bg-white/10 border border-white/20 rounded-lg py-2 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-primary">
+                </div>
+                <div class="col-span-1 md:col-span-1">
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Teslim Tarihi</label>
+                    <input type="date" name="teslim_tarihi" required class="w-full bg-white/10 border border-white/20 rounded-lg py-2 px-4 text-white [color-scheme:dark] focus:outline-none focus:ring-2 focus:ring-brand-primary">
+                </div>
+            </div>
+
+            <hr class="border-white/10">
+
+            <!-- 1. KALDIRMA EKİPMANLARI -->
+            <div class="bg-brand-group p-5 rounded-xl border border-white/5">
+                <h3 class="text-lg font-semibold text-yellow-400 mb-4 flex items-center gap-2">
+                    <i data-lucide="arrow-up-from-line" class="w-5 h-5"></i> 1. Kaldırma – İletme Ekipmanları
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 text-sm">
+                    <div class="tetkik-item"><span class="label">Vinçler</span><input type="number" name="vinc" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Forkliftler</span><input type="number" name="forklift" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Transpalet</span><input type="number" name="transpalet" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Caraskal</span><input type="number" name="caraskal" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Asansörler</span><input type="number" name="asansor" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">İstifleyiciler</span><input type="number" name="istifleyici" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Yük Asansörleri</span><input type="number" name="yuk_asansoru" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Ceraskal / Tirfor</span><input type="number" name="ceraskal_tirfor" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Forklift Ataçman</span><input type="number" name="forklift_atacman" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Yük Platformları</span><input type="number" name="yuk_platformu" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Manlift / SkyLift</span><input type="number" name="manlift" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Sapan/Kanca/Zincir</span><input type="number" name="sapan_kanca" placeholder="0"></div>
+                </div>
+            </div>
+
+            <!-- 2. BASINÇLI KAPLAR -->
+            <div class="bg-brand-group p-5 rounded-xl border border-white/5">
+                <h3 class="text-lg font-semibold text-cyan-400 mb-4 flex items-center gap-2">
+                    <i data-lucide="gauge" class="w-5 h-5"></i> 2. Basınçlı Kaplar ve Tesisatlar
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 text-sm">
+                    <div class="tetkik-item"><span class="label">Kompresörler</span><input type="number" name="kompresor" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Hava Tankları</span><input type="number" name="hava_tanki" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Kazanlar</span><input type="number" name="kazan" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Otoklavlar</span><input type="number" name="otoklav" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Genleşme Tankları</span><input type="number" name="genlesme_tanki" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Hidroforlar</span><input type="number" name="hidrofor" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">LPG Tankları</span><input type="number" name="lpg_tanki" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Tüp Demetleri</span><input type="number" name="tupler" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Emniyet Ventilleri</span><input type="number" name="emniyet_ventil" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Buhar Hatları</span><input type="number" name="buhar_hatti" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Tahliye Sistemleri</span><input type="number" name="tahliye_sistemi" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Soğutma Sistemleri</span><input type="number" name="sogutma_sistemi" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Kapalı Genleşme</span><input type="number" name="kapali_genlesme" placeholder="0"></div>
+                </div>
+            </div>
+
+            <!-- 3. ELEKTRİK TESİSATI -->
+            <div class="bg-brand-group p-5 rounded-xl border border-white/5">
+                <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center gap-2">
+                    <i data-lucide="zap" class="w-5 h-5"></i> 3. Elektrik Tesisatı & Topraklama
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 text-sm">
+                    <div class="tetkik-item"><span class="label">Elektrik Tesisatı</span><input type="number" name="elektrik_tesisati" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Topraklama Ölçümü</span><input type="number" name="topraklama" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Paratoner</span><input type="number" name="paratoner" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Kaçak Akım Rölesi</span><input type="number" name="kacak_akim" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Termal Kamera Pano</span><input type="number" name="termal_kamera" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Jeneratör</span><input type="number" name="jenerator" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">UPS Sistemleri</span><input type="number" name="ups" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Elektrik Panoları</span><input type="number" name="elektrik_pano" placeholder="0"></div>
+                </div>
+            </div>
+
+            <!-- 4. YANGIN SİSTEMLERİ -->
+            <div class="bg-brand-group p-5 rounded-xl border border-white/5">
+                <h3 class="text-lg font-semibold text-red-500 mb-4 flex items-center gap-2">
+                    <i data-lucide="flame" class="w-5 h-5"></i> 4. Yangın ve Güvenlik
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 text-sm">
+                    <div class="tetkik-item"><span class="label">Yangın Tüpleri</span><input type="number" name="yangin_tupu" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Yangın Dolapları</span><input type="number" name="yangin_dolabi" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Yangın Pompaları</span><input type="number" name="yangin_pompa" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Sprinkler</span><input type="number" name="sprinkler" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Algılama Sistemi</span><input type="number" name="algilama" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Acil Aydınlatma</span><input type="number" name="acil_aydinlatma" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Yangın Kapıları</span><input type="number" name="yangin_kapi" placeholder="0"></div>
+                </div>
+            </div>
+
+            <!-- 5. İŞYERİ MAKİNELERİ -->
+            <div class="bg-brand-group p-5 rounded-xl border border-white/5">
+                <h3 class="text-lg font-semibold text-gray-300 mb-4 flex items-center gap-2">
+                    <i data-lucide="factory" class="w-5 h-5"></i> 5. İşyeri Makineleri
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 text-sm">
+                    <div class="tetkik-item"><span class="label">Presler</span><input type="number" name="pres" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Merdaneli Mak.</span><input type="number" name="merdane" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Makaslar</span><input type="number" name="makas" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Testere Tezgahları</span><input type="number" name="testere" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Hidrolik Kaldırma</span><input type="number" name="hidrolik_kaldirma" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Enjeksiyon Mak.</span><input type="number" name="enjeksiyon" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Otomasyon Hatları</span><input type="number" name="otomasyon" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Konveyörler</span><input type="number" name="konveyor" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Kompaktörler</span><input type="number" name="kompaktor" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Fan ve Aspiratör</span><input type="number" name="fan_aspirator" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Toz Toplama</span><input type="number" name="toz_toplama_unit" placeholder="0"></div>
+                </div>
+            </div>
+
+            <!-- 6. İKLİMLENDİRME -->
+            <div class="bg-brand-group p-5 rounded-xl border border-white/5">
+                <h3 class="text-lg font-semibold text-blue-300 mb-4 flex items-center gap-2">
+                    <i data-lucide="fan" class="w-5 h-5"></i> 6. İklimlendirme ve Havalandırma
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 text-sm">
+                    <div class="tetkik-item"><span class="label">Klima Santralleri</span><input type="number" name="klima_santral" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Kanallar</span><input type="number" name="kanal" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Egzoz Fanları</span><input type="number" name="egzoz_fan" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Lokal Emiş (LEV)</span><input type="number" name="lev" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Davlumbaz</span><input type="number" name="davlumbaz" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Isı Geri Kazanım</span><input type="number" name="isi_geri_kazanim" placeholder="0"></div>
+                </div>
+            </div>
+
+            <!-- 7. İŞ MAKİNALARI -->
+            <div class="bg-brand-group p-5 rounded-xl border border-white/5">
+                <h3 class="text-lg font-semibold text-orange-400 mb-4 flex items-center gap-2">
+                    <i data-lucide="tractor" class="w-5 h-5"></i> 7. İş Makinaları
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 text-sm">
+                    <div class="tetkik-item"><span class="label">Ekskavatör</span><input type="number" name="ekskavator" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Yükleyici (Loder)</span><input type="number" name="yukleyici" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Dozer</span><input type="number" name="dozer" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Greyder</span><input type="number" name="greyder" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Silindir</span><input type="number" name="silindir" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Beton Pompası</span><input type="number" name="beton_pompa" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Forklift Dış Saha</span><input type="number" name="forklift_dis" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Sepetli Platform</span><input type="number" name="sepetli_platform" placeholder="0"></div>
+                </div>
+            </div>
+
+            <!-- 8. KONFOR & TESİS -->
+            <div class="bg-brand-group p-5 rounded-xl border border-white/5">
+                <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center gap-2">
+                    <i data-lucide="building" class="w-5 h-5"></i> 8. Konfor – Tesis Yönetimi
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 text-sm">
+                    <div class="tetkik-item"><span class="label">Asansör Bakım</span><input type="number" name="asansor_bakim" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Sıcak Su Kazanları</span><input type="number" name="sicak_su_kazan" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Hidrofor (Su)</span><input type="number" name="hidrofor_su" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Havuz Teknik</span><input type="number" name="havuz" placeholder="0"></div>
+                    <div class="tetkik-item"><span class="label">Basınçlı Yıkama</span><input type="number" name="basinc_yikama" placeholder="0"></div>
+                </div>
+            </div>
+
+            <!-- GÖNDER BUTONU -->
+            <button type="submit" id="submitBtn" class="w-full bg-brand-primary hover:bg-brand-hover text-white font-bold py-4 rounded-xl shadow-lg transform active:scale-95 transition-all flex items-center justify-center gap-2 mt-8">
+                <span>Talebi Oluştur ve Gönder</span>
+                <i data-lucide="send" class="w-5 h-5"></i>
+            </button>
+
+             <!-- Mesajlar -->
+             <div id="loadingMsg" class="hidden text-center text-yellow-400 font-semibold animate-pulse mt-4">
+                Sistem işleniyor, lütfen bekleyiniz...
+            </div>
+             <div id="successMsg" class="hidden text-center p-4 bg-green-500/20 border border-green-500 rounded-xl text-green-300 mt-4">
+                <div class="flex flex-col items-center gap-2">
+                    <i data-lucide="check-circle" class="w-8 h-8"></i>
+                    <span class="font-bold">Kayıt Başarılı!</span>
+                    <span class="text-sm text-white/70">Form temizleniyor ve ana sayfaya yönlendiriliyorsunuz...</span>
+                </div>
+            </div>
+        </form>
+
+        <a href="index.html" class="block text-center mt-8 text-gray-500 hover:text-white transition-colors text-sm mb-12">
+            &larr; Ana Sayfaya Dön
+        </a>
+    </div>
+
+    <!-- Hızlı Stil Tanımları -->
+    <style>
+        .tetkik-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.05);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.2s;
+        }
+        .tetkik-item:hover {
+            border-color: rgba(255,122,0,0.4);
+            background: rgba(255,255,255,0.08);
+        }
+        .tetkik-item input {
+            width: 60px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            padding: 4px;
+            text-align: center;
+            color: white;
+            outline: none;
+        }
+        .tetkik-item input:focus {
+            border-color: #ff7a00;
+        }
+        .label {
+            color: #e2e8f0;
+            font-size: 0.85rem;
+        }
+    </style>
+
+    <script>
+        lucide.createIcons();
+
+        // GÜNCEL SCRIPT URL'NİZ
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxKzSsRYxm0xd2mKtG3noB6Zfpke-RskoDZDevExhO2aiSHjKrA0ylpByjFKmjpDCjF/exec";
+
+        const form = document.getElementById('talepFormu');
+        const submitBtn = document.getElementById('submitBtn');
+        const loadingMsg = document.getElementById('loadingMsg');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.classList.add('hidden');
+            loadingMsg.classList.remove('hidden');
+
+            const data = new FormData(form);
+            
+            fetch(SCRIPT_URL, { method: 'POST', body: data })
+            .then(response => response.json())
+            .then(response => {
+                if (response.result === 'success') {
+                    loadingMsg.classList.add('hidden');
+                    successMsg.classList.remove('hidden');
+                    form.reset();
+                    setTimeout(() => { window.location.href = "index.html"; }, 3000);
+                } else {
+                    throw new Error(response.error); 
+                }
+            })
+            .catch(error => {
+                alert("Kayıt Başarısız! Hata Detayı:\n" + error.message + "\n\nLütfen Excel sayfa adının 'Sayfa1' olduğunu kontrol edin.");
+                submitBtn.classList.remove('hidden');
+                loadingMsg.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
